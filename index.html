@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary </title>
+</head>
+<style>
+    fieldset
+    {
+        background-color: aqua;
+
+    }
+    legend
+    {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-style: normal;
+        font-size: larger;
+        margin: 10px;
+    }
+    input[type="text"]
+    {
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+        border-radius: 3px;
+    }
+    input[type="number"]
+    {
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+        border-radius: 3px;
+    }
+    button
+    {
+        margin: 10px;
+        padding: 10px;
+        margin-left: 30px;
+        text-align: center;
+        height: 35px;
+        width: 150px;
+        border-radius: 30px;
+
+    }
+    button:hover
+    {
+        background: palevioletred;
+    }
+</style>
+<body>
+    <fieldset>
+        <legend>
+            Phone number - Diary
+        </legend>
+         <input type="text" id="name" placeholder="Enter your name"> <br>
+        <input type="number" id="num" placeholder="Enter your number"> <br>
+        <button id="btn">Save</button>
+    </fieldset>
+    <fieldset>
+        <legend>
+           PHONE NUMBER DATA 
+        </legend>
+        <div id="out">
+
+        </div>
+    </fieldset>
+    <script>
+        const key=document.getElementById("name");
+        const val=document.getElementById("num");
+        const button=document.getElementById("btn");
+        const output=document.getElementById("out");
+
+        button.onclick=function()
+        {
+            const k=key.value;
+            const v=val.value;
+             
+            if(k && v)
+            {
+                localStorage.setItem(k,v);
+                location.reload();
+             }
+    }
+    for(let i=0;i<localStorage.length;i++)
+    {
+        const k=localStorage.key(i);
+        const v=localStorage.getItem(k);
+
+        output.innerHTML+= " "+k+" :"+v;"<br>"
+
+    }
+    </script>
+    
+</body>
+</html>
